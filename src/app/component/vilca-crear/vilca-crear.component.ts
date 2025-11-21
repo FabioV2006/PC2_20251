@@ -41,13 +41,13 @@ export class VilcaCrearComponent {
     private snackBar: MatSnackBar
   ) {
     this.climaForm = this.fb.group({
-      condicion:['', Validators.required],
-      ubicacion:['', Validators.required],
-      hora:['', Validators.required],
-      fecha:['', Validators.required],
-      temperatura:[0],
-      humedad:[0]
-    })
+      conditionWeather: ['', Validators.required],   // Antes era 'condicion'
+      ubicationWeather: ['', Validators.required],   // Antes era 'ubicacion'
+      timeWeather: ['', Validators.required],        // Antes era 'hora'
+      dateWeather: ['', Validators.required],        // Antes era 'fecha'
+      temperatureWeather: [0],                       // Antes era 'temperatura'
+      humidityWeather: [0]                           // Antes era 'humedad'
+    });
   }
   registrarClima(): void{
     if(this.climaForm.valid){

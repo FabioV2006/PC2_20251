@@ -14,7 +14,7 @@ export class ClimaService {
 
   registrarClima(clima: Clima): Observable<Clima>
   {
-    return this.http.post<Clima>(this.apiURL + "/insersiones", clima);
+    return this.http.post<Clima>(this.apiURL + "/inserciones", clima);
   }
 
   listarClima(): Observable<Clima[]> {
