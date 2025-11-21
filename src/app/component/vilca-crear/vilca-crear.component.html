@@ -1,0 +1,45 @@
+<div class = "conteiner">
+  <h2>Registrar Clima</h2>
+  <form [formGroup]="climaForm" (ngSubmit)="registrarClima()">
+    <mat-form-field appearance="outline">
+      <mat-label>
+        Condicion del Clima
+      </mat-label>
+      <mat-select formControlName = "conditionWeather" required>
+        <mat-option *ngFor="let condicion of condicionclima" [value]="condicion">{{condicion}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Ubicacion</mat-label>
+      <input matInput formControlName="ubicationWeather" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Hora (HH:mm:ss)</mat-label>
+      <input matInput type= "time" formControlName="timeWeather" />
+      <mat-error *ngIf="climaForm.get('timeWeather')?.hasError('required')">La Hora es necesaria</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" style="width: 100%;">
+      <mat-label>Fecha</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="dateWeather">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="climaForm.get('dateWeather')?.hasError('required')">Obligatorio</mat-error>
+      <mat-error *ngIf="climaForm.get('dateWeather')?.hasError('fechaPasada')">La fecha debe ser hoy o futura</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Temperatura</mat-label>
+      <input matInput formControlName="temperatureWeather" type="number" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Humedad</mat-label>
+      <input matInput formControlName="humidityWeather" type="number" />
+    </mat-form-field>
+  </form>
+
+
+</div>

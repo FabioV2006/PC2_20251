@@ -1,37 +1,35 @@
-<div class = "conteiner">
-  <h2>
-    Listado de Climas
-  </h2>
+<div class="container"> <h2>Listado de Climas</h2>
 
-  <table mat-table [dataSource]="dataSource" class = "mat-elevation-z8">
-    <ng-container matColumnDef = "nombre">
-      <th mat-header-cell *mathHeaderCellDef><strong>Nombre</strong> </th>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="ubicacion">
+      <th mat-header-cell *matHeaderCellDef><strong>Ubicación</strong></th>
+      <td mat-cell *matCellDef="let element">{{element.ubicationWeather}}</td>
     </ng-container>
 
     <ng-container matColumnDef="fecha">
       <th mat-header-cell *matHeaderCellDef> Fecha </th>
-      <td mat-cell *matCellDef="let clima"> {{clima.temperatureWeather | date:'dd/MM/yyyy'}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.dateWeather | date:'dd/MM/yyyy'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="hora">
       <th mat-header-cell *matHeaderCellDef> Hora </th>
-      <td mat-cell *matCellDef="let clima"> {{clima.timeWeather}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.timeWeather}} </td>
     </ng-container>
 
-    <ng-container matColumnDef = "temperatura">
-      <th mat-header-cell *mathHeaderCellDef><strong>Temperatura</strong> </th>
+    <ng-container matColumnDef="temperatura">
+      <th mat-header-cell *matHeaderCellDef><strong>Temperatura</strong></th>
+      <td mat-cell *matCellDef="let element"> {{element.temperatureWeather}} </td>
     </ng-container>
 
-    <ng-container matColumnDef = "humedad">
-      <th mat-header-cell *mathHeaderCellDef><strong>Humedad</strong> </th>
+    <ng-container matColumnDef="humedad">
+      <th mat-header-cell *matHeaderCellDef><strong>Humedad</strong></th>
+      <td mat-cell *matCellDef="let element"> {{element.humidityWeather}} </td>
     </ng-container>
 
-    <tr mat-header-cell *matHeaderRowDef = "['Nombre','Fecha','Hora','Temperatura','Humedad']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['Nombre','Fecha','Hora','Temperatura','Humedad'];"></tr>
+    <tr mat-header-row *matHeaderRowDef="['ubicacion','fecha','hora','temperatura','humedad']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['ubicacion','fecha','hora','temperatura','humedad'];"></tr>
   </table>
-  <mat-paginator
-    [pageSizeOptions]="[3, 6, 9]"
-  showFirstLastButtons>
-  </mat-paginator>
 
+  <mat-paginator [pageSizeOptions]="[3, 6, 9]" showFirstLastButtons></mat-paginator>
 </div>
