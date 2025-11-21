@@ -33,11 +33,14 @@
         <button mat-icon-button color = "warn" (click)="eliminar(element.idWeather)">
           <mat-icon>delete</mat-icon>
         </button>
+        <button mat-icon-button color = "warn" (click)="editar(element.idWeather)">
+          <mat-icon>edit</mat-icon>
+        </button>
       </td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="['ubicacion','fecha','hora','temperatura','humedad']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['ubicacion','fecha','hora','temperatura','humedad'];"></tr>
+    <tr mat-header-row *matHeaderRowDef="['ubicacion','fecha','hora','temperatura','humedad', 'acciones']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['ubicacion','fecha','hora','temperatura','humedad', 'acciones'];"></tr>
   </table>
 
   <mat-paginator [pageSizeOptions]="[3, 6, 9]" showFirstLastButtons></mat-paginator>

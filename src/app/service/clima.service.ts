@@ -1,5 +1,5 @@
 import {HttpClient, HttpResponse} from '@angular/common/http';
-import {Clima} from '../component/model/Clima';
+import {Clima} from '../model/Clima';
 import {Observable} from 'rxjs';
 import { Injectable } from '@angular/core';
 
@@ -25,4 +25,7 @@ export class ClimaService {
     return this.http.delete( this.apiURL + "/" + id );
   }
 
+  actualizarClima(id: number, clima: Clima): Observable<Clima> {
+    return this.http.put<Clima>(this.apiURL + "/actualizaciones", clima);
+  }
 }
