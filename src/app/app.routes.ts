@@ -6,4 +6,5 @@ export const routes: Routes = [
   {path: '', redirectTo: 'vilca/listar', pathMatch: 'full'},
   {path: 'vilca/listar', component: VilcaListarComponent},
   {path: 'vilca/nuevo', component: VilcaCrearComponent},
+  { path: 'vilca/editar/:id', component: VilcaCrearComponent },
 ];

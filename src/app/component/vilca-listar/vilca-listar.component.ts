@@ -67,6 +67,6 @@ export class VilcaListarComponent implements OnInit {
   }
 
   editar(id: number) {
-    this.router.navigate(['/editar/'+id]);
+    this.router.navigate(['vilca/editar', id]);
   }
 }

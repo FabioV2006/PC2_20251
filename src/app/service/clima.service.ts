@@ -25,6 +25,10 @@ export class ClimaService {
     return this.http.delete( this.apiURL + "/" + id );
   }
 
+  listarId(id: number): Observable<Clima> {
+    return this.http.get<Clima>(`${this.apiURL}/${id}`);
+  }
+
   actualizarClima(id: number, clima: Clima): Observable<Clima> {
     return this.http.put<Clima>(this.apiURL + "/actualizaciones", clima);
   }
